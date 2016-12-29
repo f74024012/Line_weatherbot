@@ -32,10 +32,10 @@ def callback(request):
         for event in events:
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
-                    if event.message == 'hello':
+                    if event.message.text == 'hello':
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text="success")
+                            TextSendMessage(text='success')
                         )
                     else:
                         line_bot_api.reply_message(
