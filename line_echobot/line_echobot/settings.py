@@ -38,7 +38,7 @@ LINE_CHANNEL_SECRET = get_env_variable('LINE_CHANNEL_SECRET')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'aomes.herokuapp.com',
+    'aomesweather2.herokuapp.com',
     '127.0.0.1',
 ]
 
