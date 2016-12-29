@@ -37,7 +37,10 @@ LINE_CHANNEL_SECRET = get_env_variable('LINE_CHANNEL_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'aomes.herokuapp.com',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -131,3 +134,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
