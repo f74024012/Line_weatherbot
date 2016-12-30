@@ -61,6 +61,7 @@ def callback(request):
                 if isinstance(event.message, TextMessage):
                     if event.message.text == '今天天氣？':
                         #weather=Tainan()
+                        web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
                         filehandler=ur.urlopen(web)
                         for line in filehandler:
                             line=line.strip()
@@ -76,7 +77,7 @@ def callback(request):
                                         event.reply_token,
                                         TextSendMessage(text='臺南')
                                     )
-                                    break
+                                        #break
                     else:
                         line_bot_api.reply_message(
                             event.reply_token,
