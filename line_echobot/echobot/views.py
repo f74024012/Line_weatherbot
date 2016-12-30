@@ -38,7 +38,7 @@ def tainan_weather():
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
-        if '臺北市' in line:
+        if 'xmlns' in line:
             answer=1
             return "aaaaaaaa"
         elif answer==1:
