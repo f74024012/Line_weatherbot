@@ -16,7 +16,7 @@ line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
-count=8
+count=0
 minus=False
 answer=0
 angry=""
@@ -33,6 +33,9 @@ def tainan_weather():
     filehandler=ur.urlopen(web)
     for line in filehandler:
         line=str(line,"utf8")
+        count+=1;
+        if count==10:
+            return line
         #line=line.strip()
         #angry+=line
         #return line
