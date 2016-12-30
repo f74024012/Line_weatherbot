@@ -66,10 +66,6 @@ def callback(request):
                         for line in filehandler:
                             line=line.strip()
                             line = str(line,"utf8")
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text='臺南')
-                            )
                             if '臺南市' in line:
                                 answer=True
                             if answer:
@@ -77,10 +73,10 @@ def callback(request):
                                     weatherlist=line.split('>')
                                     weatherfinal=weatherlist[1].split('<')
                                     answer=False
-                                    line_bot_api.reply_message(
-                                        event.reply_token,
-                                        TextSendMessage(text='臺南')
-                                    )
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text='臺南')
+                        )
                                         #break
                     else:
                         line_bot_api.reply_message(
