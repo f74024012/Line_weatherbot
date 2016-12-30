@@ -34,7 +34,7 @@ def tainan_weather():
     for line in filehandler:
         line=str(line,"utf8")
         line=line.strip()
-        angry+=line
+        #angry+=line
         return line
         #line = str(line,"utf8")
         #return "kkkkkk"
