@@ -34,15 +34,12 @@ def tainan_weather():
     count=0
     for line in filehandler:
         line=str(line,"utf8")
-        count=count+1
-        if count>=10:
-            return line
         #line=line.strip()
         #angry+=line
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
-        if 'xmlns' in line:
+        if '臺北市' in line:
             answer=1
             return "aaaaaaaa"
         elif answer==1:
@@ -53,7 +50,7 @@ def tainan_weather():
                 #print(weatherfinal[0])
                 answer=0
                 return "GGGGGGGGG"
-    return angry
+        return "eeeeeeee"
 def test():
     return "rrrrrrr"
 
