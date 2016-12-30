@@ -66,11 +66,11 @@ def callback(request):
                         for line in filehandler:
                             line=line.strip()
                             line = str(line,"utf8")
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text='臺南')
+                            )
                             if '臺南市' in line:
-                                line_bot_api.reply_message(
-                                    event.reply_token,
-                                    TextSendMessage(text='臺南')
-                                )
                                 answer=True
                             if answer:
                                 if 'parameterName' in line:
