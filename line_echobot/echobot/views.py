@@ -34,7 +34,7 @@ def Tainan():
                 weatherfinal=weatherlist[1].split('<')
                 print(weatherfinal[0])
                 answer=False
-                #return line
+                return weatherfinal[0]
                 break
 #print(line)
 #print(s)
