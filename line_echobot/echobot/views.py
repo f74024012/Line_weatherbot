@@ -29,7 +29,7 @@ def tainan_weather():
         line=line.strip()
         line = str(line,"utf8")
         #return "kkkkkk"
-        if '臺北市' in line:
+        if 'parameterName' in line:
             answer=True
             return "aaaaaaaa"
         if answer:
