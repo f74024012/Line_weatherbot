@@ -33,7 +33,7 @@ def tainan_weather():
     filehandler=ur.urlopen(web)
     for line in filehandler:
         line=str(line,"utf8")
-        line=line.strip()
+        #line=line.strip()
         #angry+=line
         #return line
         #line = str(line,"utf8")
