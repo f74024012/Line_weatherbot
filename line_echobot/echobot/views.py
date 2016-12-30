@@ -29,11 +29,9 @@ def tainan_weather():
         line=line.strip()
         line = str(line,"utf8")
         #return "kkkkkk"
-        if 'parameterName' in line:
+        if 'version' in line and answer==False:
             answer=True
             return "aaaaaaaa"
-        else:
-            return "bbbbbbb"
         if answer:
             if 'parameterName' in line:
                 weatherlist=line.split('>')
@@ -41,7 +39,6 @@ def tainan_weather():
                 print(weatherfinal[0])
                 answer=False
                 return "GGGGGGGGG"
-                break
 def test():
     return "rrrrrrr"
 #return weatherfinal[0]
