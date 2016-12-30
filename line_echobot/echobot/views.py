@@ -37,6 +37,8 @@ def tainan_weather():
                 print(weatherfinal[0])
                 answer=False
                 return 'GGGGGGGGG'
+def test():
+    return "rrrrrrr"
 #return weatherfinal[0]
 #break
 #print(line)
@@ -62,7 +64,8 @@ def callback(request):
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
                     if event.message.text == '今天天氣？':
-                        str_weather=tainan_weather()
+                        #str_weather=tainan_weather()
+                        str_weather=test()
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text='臺南')
