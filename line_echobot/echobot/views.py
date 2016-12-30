@@ -28,7 +28,7 @@ def tainan_weather():
     for line in filehandler:
         line=line.strip()
         line = str(line,"utf8")
-        return "kkkkkk"
+        #return "kkkkkk"
         if '臺北市' in line:
             answer=True
             return "aaaaaaaa"
