@@ -30,13 +30,14 @@ def tainan_weather():
         line = str(line,"utf8")
         if '臺北市' in line:
             answer=True
+            return "aaaaaaaa"
         if answer:
             if 'parameterName' in line:
                 weatherlist=line.split('>')
                 weatherfinal=weatherlist[1].split('<')
                 print(weatherfinal[0])
                 answer=False
-                return 'GGGGGGGGG'
+                return "GGGGGGGGG"
 def test():
     return "rrrrrrr"
 #return weatherfinal[0]
