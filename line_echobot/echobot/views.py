@@ -48,7 +48,7 @@ def callback(request):
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
         #weather=Tainan()
-        print (weather)
+        #print (weather)
         try:
             events = parser.parse(body, signature)
         except InvalidSignatureError:
@@ -74,7 +74,7 @@ def callback(request):
                                     answer=False
                                     line_bot_api.reply_message(
                                         event.reply_token,
-                                        TextSendMessage(text='臺南'+weatherfinal[0])
+                                        TextSendMessage(text='臺南')
                                     )
                                     break
                     else:
