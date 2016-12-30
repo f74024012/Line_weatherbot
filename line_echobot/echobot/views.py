@@ -34,8 +34,9 @@ def Tainan():
                 weatherfinal=weatherlist[1].split('<')
                 print(weatherfinal[0])
                 answer=False
-                return weatherfinal[0]
-                break
+                return 'GGGGGGGGG'
+#return weatherfinal[0]
+#break
 #print(line)
 #print(s)
 
@@ -46,7 +47,8 @@ def callback(request):
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
-        
+        #weather=Tainan()
+        print (weather)
         try:
             events = parser.parse(body, signature)
         except InvalidSignatureError:
@@ -58,11 +60,23 @@ def callback(request):
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
                     if event.message.text == '今天天氣？':
-                        weather=Tainan()
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text='臺南'+weather)
-                        )
+                        #weather=Tainan()
+                        filehandler=ur.urlopen(web)
+                        for line in filehandler:
+                            line=line.strip()
+                            line = str(line,"utf8")
+                            if '臺南市' in line:
+                                answer=True
+                            if answer:
+                                if 'parameterName' in line:
+                                    weatherlist=line.split('>')
+                                    weatherfinal=weatherlist[1].split('<')
+                                    answer=False
+                                    line_bot_api.reply_message(
+                                        event.reply_token,
+                                        TextSendMessage(text='臺南'+weatherfinal[0])
+                                    )
+                                    break
                     else:
                         line_bot_api.reply_message(
                             event.reply_token,
