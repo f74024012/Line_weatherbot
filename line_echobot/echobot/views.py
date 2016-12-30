@@ -36,6 +36,7 @@ def tainan_weather():
             answer=True
             return "aaaaaaaa"
         if answer==True:
+            return "ssssssss"
             if 'parameterName' in str(line,"utf8"):
                 weatherlist=line.split('>')
                 weatherfinal=weatherlist[1].split('<')
