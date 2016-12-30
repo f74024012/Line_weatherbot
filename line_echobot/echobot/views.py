@@ -41,7 +41,7 @@ def tainan_weather():
         if 'version' in line:
             answer=1
             return "aaaaaaaa"
-        elif answer==True:
+        elif answer==1:
             return "ssssssss"
             if 'parameterName' in line:
                 weatherlist=line.split('>')
