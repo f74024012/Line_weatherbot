@@ -19,7 +19,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 count=8
 minus=False
 answer=False
-
+angry=""
 weather_key=settings.WEATHER_KEY
 class Tainan:
     pass
@@ -29,6 +29,7 @@ def tainan_weather():
     for line in filehandler:
         line=str(line,"utf8")
         line=line.strip()
+        angry+=line
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
@@ -43,7 +44,7 @@ def tainan_weather():
                 #print(weatherfinal[0])
                 answer=False
                 return "GGGGGGGGG"
-    return "eeeeeeeee"
+    return angry
 def test():
     return "rrrrrrr"
 #return weatherfinal[0]
