@@ -39,7 +39,7 @@ def tainan_weather():
         #line = str(line,"utf8")
         #return "kkkkkk"
         if 'version' in line:
-            #answer=True
+            answer=True
             return "aaaaaaaa"
         elif answer==True:
             return "ssssssss"
