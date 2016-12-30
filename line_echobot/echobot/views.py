@@ -26,12 +26,12 @@ def tainan_weather():
     web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
     filehandler=ur.urlopen(web)
     for line in filehandler:
-        return str(line)
+        line=str(line)
         line=line.strip()
         #return line
         line = str(line,"utf8")
         #return "kkkkkk"
-        if 'version' in line and answer==False:
+        if '臺北市' in line and answer==False:
             answer=True
             return "aaaaaaaa"
         if answer:
