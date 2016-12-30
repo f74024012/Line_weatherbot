@@ -27,6 +27,7 @@ def tainan_weather():
     filehandler=ur.urlopen(web)
     for line in filehandler:
         line=line.strip()
+        return line
         line = str(line,"utf8")
         #return "kkkkkk"
         if 'version' in line and answer==False:
