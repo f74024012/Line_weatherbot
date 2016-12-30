@@ -16,7 +16,7 @@ line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
-count=0
+
 minus=False
 answer=0
 angry=""
@@ -31,10 +31,11 @@ class Tainan:
 def tainan_weather():
     web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
     filehandler=ur.urlopen(web)
+    count=0
     for line in filehandler:
         line=str(line,"utf8")
-        count+=1;
-        if count==10:
+        count=count+1
+        if count>=10:
             return line
         #line=line.strip()
         #angry+=line
