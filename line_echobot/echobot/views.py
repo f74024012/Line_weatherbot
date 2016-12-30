@@ -28,6 +28,7 @@ def tainan_weather():
     for line in filehandler:
         line=line.strip()
         line = str(line,"utf8")
+        return "kkkkkk"
         if '臺北市' in line:
             answer=True
             return "aaaaaaaa"
@@ -66,8 +67,8 @@ def callback(request):
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
                     if event.message.text == '今天天氣？':
-                        #str_weather=tainan_weather()
-                        str_weather=test()
+                        str_weather=tainan_weather()
+                        #str_weather=test()
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text='臺南'+str_weather)
