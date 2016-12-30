@@ -28,8 +28,8 @@ def tainan_weather():
     for line in filehandler:
         line=str(line,"utf8")
         line=line.strip()
-        return line
-        line = str(line,"utf8")
+        #return line
+        #line = str(line,"utf8")
         #return "kkkkkk"
         if '臺北市' in str(line,"utf8"):
             answer=True
