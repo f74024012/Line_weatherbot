@@ -21,6 +21,11 @@ minus=False
 answer=False
 angry=""
 weather_key=settings.WEATHER_KEY
+
+
+
+
+
 class Tainan:
     pass
 def tainan_weather():
@@ -33,12 +38,12 @@ def tainan_weather():
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
-        if '臺北市' in str(line,"utf8"):
+        if 'version' in line:
             answer=True
             return "aaaaaaaa"
         elif answer==True:
             return "ssssssss"
-            if 'parameterName' in str(line,"utf8"):
+            if 'parameterName' in line:
                 weatherlist=line.split('>')
                 weatherfinal=weatherlist[1].split('<')
                 #print(weatherfinal[0])
@@ -47,6 +52,7 @@ def tainan_weather():
     return angry
 def test():
     return "rrrrrrr"
+
 #return weatherfinal[0]
 #break
 #print(line)
