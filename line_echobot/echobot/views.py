@@ -8,14 +8,39 @@ from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
+import urllib.request as ur
+
 # Create your views here.
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
+count=8
+minus=False
+answer=False
+weather_key=settings.WEATHER_KEY
+web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
+def Tainan():
+    filehandler=ur.urlopen(web)
+    for line in filehandler:
+        line=line.strip()
+        line = str(line,"utf8")
+        if '臺南市' in line:
+            answer=True
+        if answer:
+            if 'parameterName' in line:
+                weatherlist=line.split('>')
+                weatherfinal=weatherlist[1].split('<')
+                print(weatherfinal[0])
+                answer=False
+                #return line
+                break
+#print(line)
+#print(s)
 
-
+#print (web)
+#print (weather_key)
 @csrf_exempt
 def callback(request):
     if request.method == 'POST':
@@ -32,10 +57,11 @@ def callback(request):
         for event in events:
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
-                    if event.message.text == 'hello':
+                    if event.message.text == '今天天氣？':
+                        weather=Tainan()
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text='success')
+                            TextSendMessage(text='臺南'+weather)
                         )
                     else:
                         line_bot_api.reply_message(
