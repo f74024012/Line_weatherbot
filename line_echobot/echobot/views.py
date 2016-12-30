@@ -18,7 +18,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
 count=8
 minus=False
-answer=False
+answer=0
 angry=""
 weather_key=settings.WEATHER_KEY
 
@@ -39,7 +39,7 @@ def tainan_weather():
         #line = str(line,"utf8")
         #return "kkkkkk"
         if 'version' in line:
-            answer=True
+            answer=1
             return "aaaaaaaa"
         elif answer==True:
             return "ssssssss"
@@ -47,7 +47,7 @@ def tainan_weather():
                 weatherlist=line.split('>')
                 weatherfinal=weatherlist[1].split('<')
                 #print(weatherfinal[0])
-                answer=False
+                answer=0
                 return "GGGGGGGGG"
     return angry
 def test():
