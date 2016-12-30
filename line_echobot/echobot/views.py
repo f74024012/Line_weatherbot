@@ -35,7 +35,7 @@ def tainan_weather():
         line=str(line,"utf8")
         line=line.strip()
         #angry+=line
-        return line
+        #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
         if 'version' in line:
