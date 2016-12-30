@@ -19,6 +19,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 count=8
 minus=False
 answer=False
+
 weather_key=settings.WEATHER_KEY
 class Tainan:
     pass
@@ -41,6 +42,7 @@ def tainan_weather():
                 #print(weatherfinal[0])
                 answer=False
                 return "GGGGGGGGG"
+return "eeeeeeeee"
 def test():
     return "rrrrrrr"
 #return weatherfinal[0]
