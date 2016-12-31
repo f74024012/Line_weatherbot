@@ -28,7 +28,7 @@ weather_key=settings.WEATHER_KEY
 
 class Tainan:
     pass
-def tainan_weather():
+def tainan_weather(weatherarg):
     answer=0
     web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
     filehandler=ur.urlopen(web)
@@ -40,7 +40,7 @@ def tainan_weather():
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
-        if '臺北市' in line:
+        if '臺南市' in line:
             answer=1
         #return "aaaaaaaa"
         if answer==1:
@@ -82,7 +82,7 @@ def callback(request):
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
                     if event.message.text == '今天天氣？':
-                        str_weather=tainan_weather()
+                        str_weather=tainan_weather('臺南市')
                         #str_weather=test()
                         line_bot_api.reply_message(
                             event.reply_token,
