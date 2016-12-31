@@ -40,18 +40,17 @@ def tainan_weather():
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
-        if 'parameterName' in line:
+        if '臺北市' in line:
             answer=1
-            return "aaaaaaaa"
+        #return "aaaaaaaa"
         if answer==1:
-            return "ssssssss"
+            #return "ssssssss"
             if 'parameterName' in line:
                 weatherlist=line.split('>')
                 weatherfinal=weatherlist[1].split('<')
-                #print(weatherfinal[0])
                 answer=0
-                return "GGGGGGGGG"
-        return "eeeeeeee"
+        #return "GGGGGGGGG"
+#return "eeeeeeee"
 def test():
     web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
     filehandler=ur.urlopen(web)
