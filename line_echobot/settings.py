@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 from util import get_env_variable
-#from .bot_secret import *
-#try:
-#    from .bot_secret import *
-#except ImportError:
 
 
 
