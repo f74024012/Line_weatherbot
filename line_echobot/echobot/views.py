@@ -18,7 +18,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
 
 minus=False
-answer=0
+
 angry=""
 weather_key=settings.WEATHER_KEY
 
@@ -29,6 +29,7 @@ weather_key=settings.WEATHER_KEY
 class Tainan:
     pass
 def tainan_weather():
+    answer=0
     web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
     filehandler=ur.urlopen(web)
     count=0
@@ -52,7 +53,9 @@ def tainan_weather():
                 return "GGGGGGGGG"
         return "eeeeeeee"
 def test():
-    return "rrrrrrr"
+    web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
+    filehandler=ur.urlopen(web)
+    s=filehandler.read()
 
 #return weatherfinal[0]
 #break
