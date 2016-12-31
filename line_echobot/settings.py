@@ -32,7 +32,7 @@ WEATHER_KEY=get_env_variable('WEATHER_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
 ALLOWED_HOSTS = [
     'aomesweather2.herokuapp.com',
