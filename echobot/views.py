@@ -16,54 +16,26 @@ line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
-
-minus=False
-
-angry=""
 weather_key=settings.WEATHER_KEY
 
 
-
-
-
-class Tainan:
+class Weather:
     pass
-def city_weather(weatherarg):
-    answer=0
+def city_weather(weatherarg):#find out the weather in "weatherarg" city
+    answer=0 #after the query city be found,the value changes to 1
     web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
     filehandler=ur.urlopen(web)
-    count=0
     for line in filehandler:
         line=str(line,"utf8")
-        #line=line.strip()
-        #angry+=line
-        #return line
-        #line = str(line,"utf8")
-        #return "kkkkkk"
-        if weatherarg in line:
+        if weatherarg in line: #search the query city's name
             answer=1
-        #return "aaaaaaaa"
         if answer==1:
-            #return "ssssssss"
-            if 'parameterName' in line:
-                weatherlist=line.split('>')
-                weatherfinal=weatherlist[1].split('<')
+            if 'parameterName' in line: #search the query city's weather information
+                weatherlist=line.split('>') #parsing xml
+                weatherfinal=weatherlist[1].split('<') #parsing xml
                 answer=0
-                return weatherfinal[0]
-        #return "GGGGGGGGG"
-#return "eeeeeeee"
-def test():
-    web='http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey='+weather_key
-    filehandler=ur.urlopen(web)
-    s=filehandler.read()
+                return weatherfinal[0] #final weather information
 
-#return weatherfinal[0]
-#break
-#print(line)
-#print(s)
-
-#print (web)
-#print (weather_key)
 @csrf_exempt
 def callback(request):
     city=["臺北市","新北市","桃園市","臺中市","臺南市",
@@ -73,8 +45,6 @@ def callback(request):
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
-        #weather=Tainan()
-        #print (weather)
         try:
             events = parser.parse(body, signature)
         except InvalidSignatureError:
@@ -85,31 +55,30 @@ def callback(request):
         for event in events:
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
-                    if event.message.text == '今天天氣？':
-                        str_weather=city_weather('臺南市')
-                        #str_weather=test()
+                    if event.message.text == '今天天氣？':  #answer ex: 臺南多雲
+                        str_weather=city_weather('臺南市') #search Tainan weather
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text='臺南'+str_weather)
                         )
-                    elif '天氣如何？' in event.message.text:
+                elif '天氣如何？' in event.message.text: #answer ex: 臺北市多雲
                         citylist=event.message.text.split('天')
-                        if citylist[0] in city:
-                            last_weather=city_weather(citylist[0])
+                        if citylist[0] in city: #check city exist in Taiwan
+                            last_weather=city_weather(citylist[0]) #search query city's weather
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=citylist[0]+last_weather)
                             )
-                        else:
+                        else:#city not exist,echo
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=event.message.text)
                             )
-                    else:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=event.message.text)
-                        )
+                else:#echo
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=event.message.text)
+                    )
 
 
         
