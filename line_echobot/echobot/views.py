@@ -66,6 +66,10 @@ def test():
 #print (weather_key)
 @csrf_exempt
 def callback(request):
+    city=["臺北市","新北市","桃園市","臺中市","臺南市",
+          "高雄市","基隆市","新竹市","嘉義市","新竹縣","苗栗縣",
+          "彰化縣","南投縣","雲林縣","嘉義縣","屏東縣","宜蘭縣",
+          "花蓮縣","臺東縣","臺東市","澎湖縣","金門縣","連江縣"]
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
@@ -87,6 +91,12 @@ def callback(request):
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text='臺南'+str_weather)
+                        )
+                    if '天氣如何？' in event.message.text:
+                        citylist=event.message.text.split('天')
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=citylist[0])
                         )
                     else:
                         line_bot_api.reply_message(
