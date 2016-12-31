@@ -1,3 +1,0 @@
-export SECRET_KEY='s$udomv@@dg7vte$w0u9f#wr4e4&!$@4#^@*o_fe8@pay87v08'
-export LINE_CHANNEL_ACCESS_TOKEN='kpSy24qqrACF2BD4uMUCM4k3JtyVdpBkWThRhHHT3Lx5HQ/OIu+VW+s4efIEOQw6spzLlR9HO+7Fggo+Vk5cYkppJ1iGX3dSzXw59J37CrNRwfn2ZzlyQ0pG4SgsmF2+ke+S+gOPEAO223V67aHviQdB04t89/1O/w1cDnyilFU='
-export LINE_CHANNEL_SECRET='e0dfe3fc1374b2b45b1e2d23dcee738b'
