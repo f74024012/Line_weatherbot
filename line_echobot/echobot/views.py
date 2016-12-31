@@ -40,7 +40,7 @@ def tainan_weather(weatherarg):
         #return line
         #line = str(line,"utf8")
         #return "kkkkkk"
-        if '臺南市' in line:
+        if weatherarg in line:
             answer=1
         #return "aaaaaaaa"
         if answer==1:
