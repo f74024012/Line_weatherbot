@@ -35,7 +35,7 @@ WEATHER_KEY=get_env_variable('WEATHER_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'aomesweather1.herokuapp.com',
+    'aomesweather2.herokuapp.com',
     '127.0.0.1',
 ]
 
