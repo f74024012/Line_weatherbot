@@ -49,6 +49,7 @@ def tainan_weather():
                 weatherlist=line.split('>')
                 weatherfinal=weatherlist[1].split('<')
                 answer=0
+                return weatherfinal[0]
         #return "GGGGGGGGG"
 #return "eeeeeeee"
 def test():
