@@ -35,7 +35,7 @@ def city_weather(weatherarg):#find out the weather in "weatherarg" city
                 weatherfinal=weatherlist[1].split('<') #parsing xml
                 answer=0
                 return weatherfinal[0] #final weather information
- 
+
 @csrf_exempt
 def callback(request):
     city=["臺北市","新北市","桃園市","臺中市","臺南市",

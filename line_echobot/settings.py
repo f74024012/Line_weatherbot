@@ -33,7 +33,7 @@ WEATHER_KEY=get_env_variable('WEATHER_KEY')
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 's$udomv@@dg7vte$w0u9f#wr4e4&!$@4#^@*o_fe8@pay87v08'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
