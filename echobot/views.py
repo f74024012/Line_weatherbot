@@ -18,6 +18,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
 weather_key=settings.WEATHER_KEY
 
+print (weather_key)
 
 class Weather:
     pass
@@ -61,7 +62,7 @@ def callback(request):
                             event.reply_token,
                             TextSendMessage(text='臺南'+str_weather)
                         )
-                elif '天氣如何？' in event.message.text: #answer ex: 臺北市多雲
+                    elif '天氣如何？' in event.message.text: #answer ex: 臺北市多雲
                         citylist=event.message.text.split('天')
                         if citylist[0] in city: #check city exist in Taiwan
                             last_weather=city_weather(citylist[0]) #search query city's weather
@@ -74,11 +75,11 @@ def callback(request):
                                 event.reply_token,
                                 TextSendMessage(text=event.message.text)
                             )
-                else:#echo
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=event.message.text)
-                    )
+                    else:#echo
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=event.message.text)
+                        )
 
 
         
