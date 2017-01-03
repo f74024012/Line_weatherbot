@@ -18,7 +18,6 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
 weather_key=settings.WEATHER_KEY
 
-#print (weather_key)
 
 class Weather:
     pass
