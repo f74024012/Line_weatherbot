@@ -70,7 +70,7 @@ def callback(request):
                             final_cityrequest=cityrequest
                             line_bot_api.reply_message(
                                     event.reply_token,
-                                    TextSendMessage(text=final_cityrequest+lastweather)
+                                    TextSendMessage(text='aaa'+lastweather)
                             )
                         else:#city not exist,echo
                             line_bot_api.reply_message(
