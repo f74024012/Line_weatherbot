@@ -18,7 +18,6 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
 weather_key=settings.WEATHER_KEY
 
-
 class Weather:
     pass
 def city_weather(weatherarg):#find out the weather in "weatherarg" city
