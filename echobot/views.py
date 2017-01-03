@@ -39,6 +39,7 @@ def city_weather(weatherarg):#find out the weather in "weatherarg" city
 
 @csrf_exempt
 def callback(request):
+    check=0
     city=["臺北市","新北市","桃園市","臺中市","臺南市",
           "高雄市","基隆市","新竹市","嘉義市","新竹縣","苗栗縣",
           "彰化縣","南投縣","雲林縣","嘉義縣","屏東縣","宜蘭縣",
@@ -67,16 +68,19 @@ def callback(request):
                         cityrequest=''
                         for cityrequest in city:
                             if cityrequest in event.message.text:
+                                check=1
                                 lastweather=city_weather(cityrequest)
                                 line_bot_api.reply_message(
                                     event.reply_token,
                                     TextSendMessage(text=cityrequest+lastweather)
                                 )
-                            else:#city not exist,echo
-                                line_bot_api.reply_message(
-                                    event.reply_token,
-                                    TextSendMessage(text=event.message.text)
-                                )
+                            
+                        if check == 0 :#city not exist,echo
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=event.message.text)
+                            )
+                        check=0
                     else:#echo
                         line_bot_api.reply_message(
                             event.reply_token,
