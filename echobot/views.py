@@ -64,6 +64,7 @@ def callback(request):
                         )
                     elif '天氣' in event.message.text: #answer ex: 臺北市多雲
                         #citylist=event.message.text.split('天')
+                        cityrequest=''
                         if any(cityrequest in event.message.text for cityrequest in city):
                             lastweather=city_weather(cityrequest)
                             line_bot_api.reply_message(
