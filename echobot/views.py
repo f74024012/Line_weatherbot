@@ -64,17 +64,14 @@ def callback(request):
                             TextSendMessage(text='臺南'+str_weather)
                         )
                     elif '天氣' in event.message.text: #answer ex: 臺北市多雲
-                        #citylist=event.message.text.split('天')
-                        cityrequest=''
-                        for cityrequest in city:
-                            if cityrequest in event.message.text:
+                        for cityrequest in city:#iterate all the cities
+                            if cityrequest in event.message.text:#check whether the city in query or not
                                 check=1
-                                lastweather=city_weather(cityrequest)
+                                lastweather=city_weather(cityrequest)#search the city's weather
                                 line_bot_api.reply_message(
                                     event.reply_token,
                                     TextSendMessage(text=cityrequest+lastweather)
                                 )
-                            
                         if check == 0 :#city not exist,echo
                             line_bot_api.reply_message(
                                 event.reply_token,
