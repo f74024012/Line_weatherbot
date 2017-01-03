@@ -14,13 +14,13 @@ WEATHER_KEY (向中央氣象局開放資料平臺申請為會員後，即可得�
 
 setup:
 
-export SECRET_KEY='Your django secret key'
+`export SECRET_KEY='Your django secret key'`
 
-export LINE_CHANNEL_ACCESS_TOKEN='Your line channel access token'
+`export LINE_CHANNEL_ACCESS_TOKEN='Your line channel access token'`
 
-export LINE_CHANNEL_SECRET='Your line channel secret'
+`export LINE_CHANNEL_SECRET='Your line channel secret'`
 
-export WEATHER_KEY='your weather key'
+`export WEATHER_KEY='your weather key'`
 
 ##聊天規則
 
