@@ -65,19 +65,18 @@ def callback(request):
                     elif '天氣' in event.message.text: #answer ex: 臺北市多雲
                         #citylist=event.message.text.split('天')
                         cityrequest=' '
-                        word_set=set(city)
-                        phrade_set=set(event.message.text.split())
-                        if word_set.intersection(phrade_set):
-                            last_weather=city_weather(word_set)
-                            line_bot_api.reply_message(
+                        for cityrequest in city:
+                            if cityrequest in event.message.text:
+                                lastweather=city_weather(cityrequest)
+                                line_bot_api.reply_message(
                                     event.reply_token,
-                                    TextSendMessage(text=word_set+lastweather)
-                            )
-                        else:#city not exist,echo
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=event.message.text)
-                            )
+                                    TextSendMessage(text=cityrequest+lastweather)
+                                )
+                            else:#city not exist,echo
+                                line_bot_api.reply_message(
+                                    event.reply_token,
+                                    TextSendMessage(text=event.message.text)
+                                )
                     else:#echo
                         line_bot_api.reply_message(
                             event.reply_token,
